@@ -1,0 +1,8 @@
+<button class="card custom-card" >
+    <img [src]="imgSrc" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ title }}</h5>
+      <p class="card-text">{{description}}</p>
+      <app-contact-product [type]="type" [title]="title"></app-contact-product>
+    </div>
+</button>

@@ -1,0 +1,19 @@
+<br>
+<div class="row" id="testScroll" style="padding-top: 1.5rem !important;">
+    <app-carousel ></app-carousel>
+</div>
+<div *ngFor="let type of getTypes()">
+    <h2>{{ type | titlecase }}</h2>
+    <div class="row"  style="padding-top: 1.5rem !important;">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3 d-flex justify-content-center" *ngFor="let product of groupedProducts[type]">
+            <ng-container [ngSwitch]="product.type">
+                <app-card-example-product1 *ngSwitchCase="'Tipo 1'" [type]="type | titlecase" [title]="product.title"  [description]="product.description" [imgSrc]="product.image"></app-card-example-product1>
+                <app-card-example-product2 *ngSwitchCase="'Tipo 2'" [type]="type | titlecase" [title]="product.title"  [description]="product.description" [imgSrc]="product.image"></app-card-example-product2>
+                <app-card-example-product3 *ngSwitchCase="'Tipo 3'" [type]="type | titlecase" [title]="product.title"  [description]="product.description" [imgSrc]="product.image"></app-card-example-product3>
+                <p *ngSwitchDefault>Producto no reconocido</p>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<app-floating-button [targetDivId]="'testScroll'"></app-floating-button>
